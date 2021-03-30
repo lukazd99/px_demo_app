@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "px_demo_app_client", "px_demo_app_client\px_demo_app_client.csproj", "{60FFA362-9F78-4749-9C86-8F7286CCEC16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60FFA362-9F78-4749-9C86-8F7286CCEC16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60FFA362-9F78-4749-9C86-8F7286CCEC16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60FFA362-9F78-4749-9C86-8F7286CCEC16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60FFA362-9F78-4749-9C86-8F7286CCEC16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE0640FE-83EA-46C3-A5A5-34B5A207458F}
+	EndGlobalSection
+EndGlobal
