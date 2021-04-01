@@ -29,72 +29,68 @@ namespace px_demo_app_client
         /// </summary>
         private void InitializeComponent()
         {
+            this.logMessageDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxRequest = new System.Windows.Forms.TextBox();
-            this.btnGo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxResponse = new System.Windows.Forms.TextBox();
+            this.logMessageText = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // logMessageDate
+            // 
+            this.logMessageDate.Location = new System.Drawing.Point(32, 42);
+            this.logMessageDate.Name = "logMessageDate";
+            this.logMessageDate.Size = new System.Drawing.Size(254, 22);
+            this.logMessageDate.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 53);
+            this.label1.Location = new System.Drawing.Point(32, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Request URI:";
-            // 
-            // textBoxRequest
-            // 
-            this.textBoxRequest.Location = new System.Drawing.Point(116, 53);
-            this.textBoxRequest.Name = "textBoxRequest";
-            this.textBoxRequest.Size = new System.Drawing.Size(244, 22);
-            this.textBoxRequest.TabIndex = 1;
-            // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(384, 44);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(81, 40);
-            this.btnGo.TabIndex = 2;
-            this.btnGo.Text = "Go!";
-            this.btnGo.UseVisualStyleBackColor = true;
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Log date:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 98);
+            this.label2.Location = new System.Drawing.Point(35, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Response:";
+            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Message:";
             // 
-            // textBoxResponse
+            // logMessageText
             // 
-            this.textBoxResponse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxResponse.Location = new System.Drawing.Point(117, 99);
-            this.textBoxResponse.Multiline = true;
-            this.textBoxResponse.Name = "textBoxResponse";
-            this.textBoxResponse.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxResponse.Size = new System.Drawing.Size(418, 181);
-            this.textBoxResponse.TabIndex = 4;
+            this.logMessageText.Location = new System.Drawing.Point(32, 112);
+            this.logMessageText.Multiline = true;
+            this.logMessageText.Name = "logMessageText";
+            this.logMessageText.Size = new System.Drawing.Size(254, 158);
+            this.logMessageText.TabIndex = 3;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(67, 310);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(186, 38);
+            this.btnSend.TabIndex = 4;
+            this.btnSend.Text = "SEND LOG MESSAGE";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 308);
-            this.Controls.Add(this.textBoxResponse);
+            this.ClientSize = new System.Drawing.Size(338, 429);
+            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.logMessageText);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnGo);
-            this.Controls.Add(this.textBoxRequest);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.logMessageDate);
             this.Name = "Form1";
-            this.Text = "px_demo_app_client";
+            this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,11 +98,10 @@ namespace px_demo_app_client
 
         #endregion
 
+        private System.Windows.Forms.DateTimePicker logMessageDate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxRequest;
-        private System.Windows.Forms.Button btnGo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxResponse;
+        private System.Windows.Forms.TextBox logMessageText;
+        private System.Windows.Forms.Button btnSend;
     }
 }
-

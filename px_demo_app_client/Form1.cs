@@ -15,41 +15,52 @@ namespace px_demo_app_client
         public Form1()
         {
             InitializeComponent();
+            logMessageDate.Value = DateTime.Now;
         }
 
-        #region UI_Event_Handle_Methods
-        
-        private void btnGo_Click(object sender, EventArgs e)
+        private void btnSend_Click(object sender, EventArgs e)
         {
-            string URI = textBoxRequest.Text;
-            RestClient restClient = new RestClient(URI, HttpRequests.GET);
+            DateTime logDateValue = logMessageDate.Value;
+            string logMessageValue = logMessageText.Text;
+            LogMessage.LogLevels logLevel = LogMessage.LogLevels.info;
 
-            string output = restClient.MakeRequest();
-            
-            DebugOutput(output);
+            if (LogLevelIncluded(logMessageValue))
+            {
+                string logLevelStr = GetLogLevelString(logMessageValue);
+                if (!LogLevelInputValid(logLevelStr))
+                {
+                    MessageBox.Show("Log level input is not valid.");
+                    return;
+                }
+
+                logLevel = (LogMessage.LogLevels)
+                    Enum.Parse(typeof(LogMessage.LogLevels), logLevelStr);
+
+                logMessageValue = GetLogMessageWithoutLevel(logMessageValue);
+            }
+
+            LogMessage logMessage =
+                new LogMessage(logDateValue, Application.ProductName,
+                logMessageValue, logLevel);
+
+            MessageBox.Show(logMessage.ToString());
         }
 
-        #endregion UI_Event_Handle_Methods
+        private bool LogLevelIncluded(string message) 
+            => message[0].Equals('[') || message.StartsWith(" [");
 
-        #region Debug_Methods
-        /// <summary>
-        /// Used for debugging.
-        /// </summary>
-        /// <param name="text">The debug text.</param>
-        private void DebugOutput(string text)
+        private bool LogLevelInputValid(string text)
+            => Enum.GetNames(typeof(LogMessage.LogLevels))
+            .ToList().Exists(x => x.Equals(text));
+
+        private string GetLogLevelString(string message)
         {
-            try
-            {
-                System.Diagnostics.Debug.Write(text + Environment.NewLine);
-                textBoxResponse.Text = textBoxResponse.Text + text + Environment.NewLine;
-                textBoxResponse.SelectionStart = textBoxResponse.TextLength;
-                textBoxResponse.ScrollToCaret();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.Write(ex.Message, ToString() + Environment.NewLine);
-            }
+            int firstIndex = message.IndexOf('[');
+            int lastIndex = message.IndexOf(']');
+            return message.Substring(firstIndex + 1, lastIndex - 1).ToLower();
         }
-        #endregion Debug_Methods
+
+        private string GetLogMessageWithoutLevel(string message)
+         => message.Split(']')[1];
     }
 }
