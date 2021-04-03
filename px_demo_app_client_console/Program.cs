@@ -44,8 +44,6 @@ namespace px_demo_app_client_console
                 messages.Add(new LogMessage(app_id,DateTime.Now,"MessageTest",LogMessage.LogLevels.info));
             }
 
-
-
             DateTime d1;
             TimeSpan s;
             d1 = DateTime.Now;
@@ -68,7 +66,6 @@ namespace px_demo_app_client_console
 
                 string json = JsonSerializer.Serialize(messages.ToArray());
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                Console.WriteLine(json);
                 HttpResponseMessage rm = await client.PostAsync("https://localhost:" + APIport + "/Px/postlog/", content);
             }
 
